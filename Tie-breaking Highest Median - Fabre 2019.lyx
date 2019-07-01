@@ -13,6 +13,7 @@
 \usepackage{capt-of}
 %\documentclass[5p]{elsarticle}
 \usepackage[switch,modulo]{lineno}
+\hypersetup{citecolor=blue,colorlinks=true}
 %\sloppy
 \end_preamble
 \options smallextended
@@ -447,8 +448,8 @@ natural
 
 simple rule, called the typical judgment, orders tied candidates by the
  difference between their share of proponents and opponents.
- A natural rule, called the usual judgment, divides this difference by the
- share of median votes.
+ An appealing rule, called the usual judgment, divides this difference by
+ the share of median votes.
  An alternative rule, called the central judgment, compares the relative
  shares of proponents and opponents.
  
@@ -498,7 +499,7 @@ the paper rightfully points out that the claim doesn’t hold for a finite
  this result, by emphasizing that it only holds for continuous scales of
  grades.
  Properties remaining specific to the majority judgment in the discrete
- case are idiosyncratic features more than universally sought criteria,
+ case are idiosyncratic features rather than universally sought criteria,
  and other median-based rules exist that are both monotonic and continuous.
 \end_layout
 
@@ -508,7 +509,7 @@ status open
 
 \begin_layout Plain Layout
 I am grateful to Jean-François Laslier for his comments and suggestions.
- 
+ TODO
 \end_layout
 
 \end_inset
@@ -524,6 +525,27 @@ François Durand for his proofreading
 \end_inset
 
 , and to Maria Sarmiento for the grammar check.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Replication files
+\series default
+ 
+\begin_inset space \quad{}
+\end_inset
+
+All the code, figures and data is available on 
+\begin_inset CommandInset href
+LatexCommand href
+name "github.com/bixiou/highest_median"
+target "https://github.com/bixiou/highest_median"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -859,8 +881,17 @@ their theorem only applies to a continuous set of grades, whereas in all
  practical application, the set of grades is finite.
  As a consequence, other voting systems electing the highest median are
  as credible as the majority judgment.
- Rather than discrediting the outstanding theory elaborated by BL, this
- observation enriches it by a variety of simpler
+ Rather than discrediting the 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+outstanding
+\end_layout
+
+\end_inset
+
+theory elaborated by BL, this observation enriches it by a variety of simpler
 \begin_inset Note Note
 status collapsed
 
@@ -901,7 +932,7 @@ noprefix "false"
 \end_inset
 
 .
- Then, the main results are exposed in section 
+ Then, the main result is exposed in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Properties-of-these"
@@ -933,7 +964,9 @@ noprefix "false"
 
 \end_inset
 
-, we compare the properties of the different tie-breaking rules.
+, we compare the properties of the different tie-breaking rules, and show
+ that the majority judgment is overly sensitive to small fluctuations in
+ the grades.
  
 \begin_inset Note Note
 status open
@@ -2326,7 +2359,17 @@ B
 \emph on
 C
 \emph default
- wins with tie-breaking rule of 
+ wins with 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+tie-breaking rule of 
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula $n$
 \end_inset
 
@@ -2340,7 +2383,7 @@ C
  outcomes.
  It is worth noticing that, as MJ only takes into account the largest of
  the two groups of non-median grades, it is more sensitive to a small variation
- in their sizes when these are close: in our example, if 3% of votes shifts
+ in their sizes when these are close: in our example, if 3% of grades shifts
  from 0 to 
 \begin_inset Formula $-1$
 \end_inset
@@ -2691,9 +2734,9 @@ The author claims on page 4 that “B-L does not allow for partial ab- stention.
 
 \end_inset
 
- All results are preserved when allowing for partial abstention, but to
- simplify the presentation, we follow BL and consider that each choice receives
- the same number of expressed grades 
+ All results are preserved when allowing for partial abstention but to simplify
+ the presentation, we follow BL and consider that each choice receives the
+ same number of expressed grades 
 \emph on
 V
 \emph default
@@ -2708,12 +2751,26 @@ V
 \begin_inset Formula $\left\llbracket 1;G\right\rrbracket $
 \end_inset
 
+ and embedded in 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
 .
  Hence, each grade 
 \begin_inset Formula $g\in\mathcal{G}$
 \end_inset
 
- is identified with an integer, so that its successor (when it exists) (resp.
+ is identified with an integer, so that its successor
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+(when it exists)
+\end_layout
+
+\end_inset
+
+ (resp.
  its predecessor) is simply noted 
 \begin_inset Formula $g+1$
 \end_inset
@@ -2866,7 +2923,7 @@ th order function
 \emph on
 j
 \emph default
-th lowest grade of a candidate.
+th lowest grade of a choice.
  We define the 
 \emph on
 lower middlemost
@@ -2952,7 +3009,7 @@ c
 \emph on
 first middlemost interval
 \emph default
-, which is the set of middlemost grades: 
+, whose bounds are middlemost grades: 
 \begin_inset Formula $\left\llbracket \ell^{\left\lceil \frac{V+1}{2}\right\rceil -1}\left(c\right);\ell^{\left\lceil \frac{V}{2}\right\rceil +1}\left(c\right)\right\rrbracket $
 \end_inset
 
@@ -3063,30 +3120,20 @@ c
 \begin_inset Formula $\alpha_{c}-n$
 \end_inset
 
-)
+): 
+\begin_inset Formula $p_{c}^{n}:=\frac{1}{V}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}\geq\alpha_{c}+n\right\} \right|$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $q_{c}^{n}:=\frac{1}{V}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}\leq\alpha_{c}-n\right\} \right|$
+\end_inset
+
+).
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-: 
-\begin_inset Formula $p_{c}^{n}:=\frac{1}{E_{c}}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}\geq\alpha_{c}+n\right\} \right|$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-(resp.
- 
-\begin_inset Formula $q_{c}^{n}:=\frac{1}{E_{c}}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}\leq\alpha_{c}-n\right\} \right|$
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
 .
  Formally, as grades outside 
 \begin_inset Formula $\mathcal{G}$
@@ -3096,13 +3143,22 @@ status collapsed
 \begin_inset Formula $\min$
 \end_inset
 
- and set 
+ (resp.
+ 
+\begin_inset Formula $\max$
+\end_inset
+
+) and set
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
 \begin_inset Formula $p_{c}^{n}:=\frac{1}{V}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}>\min\left\{ \alpha_{c}+n-1;\,G\right\} \right\} \right|$
 \end_inset
 
  
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 was there a reason to define them as 
@@ -3114,21 +3170,24 @@ was there a reason to define them as
 \end_inset
 
 ? Formellement, G+1 n'est pas défini.
+ => certes, mais il doit être défini pour calculer le min.
 \end_layout
 
 \end_inset
 
-
+(resp.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \noindent
-(resp.
- 
 \begin_inset Formula $q_{c}^{n}:=\frac{1}{V}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}<\max\left\{ \alpha_{c}-n+1;\,1\right\} \right\} \right|$
 \end_inset
 
 ).
+\end_layout
+
+\end_inset
+
  For simplicity, we abusively qualify 
 \begin_inset Formula $p_{c}:=p_{c}^{1}$
 \end_inset
@@ -3572,155 +3631,6 @@ because the middlemost grades are preeminent (prioritizing the outermost
 Balinksi & Laraki (2007) show that all these rules insure strategy-proofness,
  independence of irrelevant alternatives and other appreciable properties.
  
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide true
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename ternary plots/all_rhombus_invAB_trim.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Ternary-plot-showing"
-
-\end_inset
-
-Ternary plot showing the scores of different tie-breaking rules.
- Tuples 
-\begin_inset Formula $\left(p,q,1-p-q\right)$
-\end_inset
-
- for 
-\begin_inset Formula $p,q\in\left(0;1\right)$
-\end_inset
-
- are represented in barycentric coordinates on the frame 
-\begin_inset Formula $\left(+1,-1,0\right)$
-\end_inset
-
-.
- The interior of the red rhombus corresponds to 
-\begin_inset Formula $p,q\leq\frac{1}{2}$
-\end_inset
-
-.
- In such cases, the median grade is 0, and the 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-share 
-\emph on
-p
-\emph default
- (resp.
- 
-\emph on
-q
-\emph default
-) of 
-\end_layout
-
-\end_inset
-
-grades above (resp.
- below) 0 are treated as 
-\begin_inset Formula $+1$
-\end_inset
-
- (resp.
- 
-\begin_inset Formula $-1$
-\end_inset
-
-).
- 
-\emph on
-A
-\emph default
-, 
-\emph on
-B, C 
-\emph default
-and 
-\emph on
-D 
-\emph default
-are the example candidates described in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Comparison-of-different"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Formula $\sigma$
-\end_inset
-
- has been normalized in 
-\begin_inset Formula $\left(-\frac{1}{2};\frac{1}{2}\right)$
-\end_inset
-
-
-\emph on
- 
-\emph default
-by the transformation 
-\begin_inset Formula $\sigma\mapsto\sigma-\frac{1}{2}$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -4249,7 +4159,7 @@ literal "false"
 
 \end_inset
 
- propose an equivalent description MJ.
+ propose an equivalent description of MJ.
  The choice with the highest 
 \begin_inset Note Note
 status collapsed
@@ -4707,24 +4617,50 @@ Is it really necessary to distinguish tie-breaking score and primary score:
 Intuitively, the winner is the one with the highest share of proponents
  within its non-median voters, i.e.
  the highest 
-\begin_inset Formula $\frac{p_{c}}{p_{c}+q_{c}}$
+\begin_inset Formula $\frac{p}{p+q}$
 \end_inset
 
 .
- Indeed,
-\begin_inset Newline newline
+ Indeed, 
+\begin_inset Formula $\sigma=\frac{1}{2}\left(\frac{p}{p+q}-\left(1-\frac{p}{p+q}\right)\right)=\frac{p}{p+q}-\frac{1}{2}$
 \end_inset
 
- 
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Formula $\sigma_{c}=\frac{1}{2}\left(\frac{p_{c}}{p_{c}+q_{c}}-\left(1-\frac{p_{c}}{p_{c}+q_{c}}\right)\right)=\frac{p_{c}}{p_{c}+q_{c}}-\frac{1}{2}$
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
 .
+ Equivalently, 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ rewards the highest ratio of proponents over opponents 
+\begin_inset Formula $\frac{p}{q}$
+\end_inset
+
+, as 
+\begin_inset Formula $\sigma=\frac{1}{2}\frac{p-q}{p+q}=\frac{1}{2}\frac{1-\frac{q}{p}}{1+\frac{q}{p}}=f\left(\frac{p}{q}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $f\left(x\right):=\frac{1}{2}\frac{1-\frac{1}{x}}{1+\frac{1}{x}}$
+\end_inset
+
+ strictly increasing.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-TODO highest p/q?
+expliquer qu'il n'y a pas d'overlap #1(9),
 \end_layout
 
 \end_inset
@@ -4734,7 +4670,39 @@ TODO highest p/q?
 status open
 
 \begin_layout Plain Layout
-expliquer qu'il n'y a pas d'overlap #1(9),
+Replace 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ by 
+\begin_inset Formula $\rho$
+\end_inset
+
+ (and 
+\begin_inset Formula $\pi$
+\end_inset
+
+ by 
+\begin_inset Formula $\sigma$
+\end_inset
+
+) and 
+\begin_inset Quotes eld
+\end_inset
+
+relative share
+\begin_inset Quotes erd
+\end_inset
+
+ by 
+\begin_inset Quotes eld
+\end_inset
+
+ratio
+\begin_inset Quotes erd
+\end_inset
+
+ TODO
 \end_layout
 
 \end_inset
@@ -4873,6 +4841,155 @@ naming it Variation?
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ternary plots/all_rhombus_invAB_trim.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ternary-plot-showing"
+
+\end_inset
+
+Ternary plot showing the scores of different tie-breaking rules.
+ Tuples 
+\begin_inset Formula $\left(p,q,1-p-q\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $p,q\in\left(0;1\right)$
+\end_inset
+
+ are represented in barycentric coordinates on the frame 
+\begin_inset Formula $\left(+1,-1,0\right)$
+\end_inset
+
+.
+ The interior of the red rhombus corresponds to 
+\begin_inset Formula $p,q\leq\frac{1}{2}$
+\end_inset
+
+.
+ In such cases, the median grade is 0, and the 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+share 
+\emph on
+p
+\emph default
+ (resp.
+ 
+\emph on
+q
+\emph default
+) of
+\end_layout
+
+\end_inset
+
+grades above (resp.
+ below) 0 are treated as 
+\begin_inset Formula $+1$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $-1$
+\end_inset
+
+).
+ 
+\emph on
+A
+\emph default
+, 
+\emph on
+B, C 
+\emph default
+and 
+\emph on
+D 
+\emph default
+are the example candidates described in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Comparison-of-different"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+ has been normalized in 
+\begin_inset Formula $\left(-\frac{1}{2};\frac{1}{2}\right)$
+\end_inset
+
+
+\emph on
+ 
+\emph default
+by the transformation 
+\begin_inset Formula $\sigma\mapsto\sigma-\frac{1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 Visualizing the rules
 \end_layout
@@ -4935,6 +5052,17 @@ of proponents (resp.
  of opponents).
  This plot makes clear that different rules yield different rankings, and
  reveals the discontinuities present in all rules but the normalized difference
+ (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Influence-of-each"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
 \begin_inset Note Note
 status collapsed
 
@@ -5188,7 +5316,7 @@ n
 \begin_inset Formula $\left(p_{c}^{n+1},q_{c}^{n+1}\right)$
 \end_inset
 
-; it is noted 
+, noted 
 \begin_inset Formula $\Delta_{c}^{n+1}$
 \end_inset
 
@@ -5404,7 +5532,8 @@ to
 \begin_inset Formula $\left(p^{i}\right)_{i}$
 \end_inset
 
-, and we give priority to the 
+.
+ We give precedence to the 
 \begin_inset Formula $\left(-q^{i}\right)_{i}$
 \end_inset
 
@@ -5924,7 +6053,15 @@ Most of the results on the majority judgment proven by Balinski & Laraki
  apply to all voting rules electing the choice with the highest median grade.
  The main properties that rely on their tie-breaking rule also apply to
  the alternative tie-breaking rules.
- Indeed, although they 
+ Indeed, although 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "balinski_judge:_2014"
+literal "false"
+
+\end_inset
+
+ 
 \begin_inset Note Note
 status open
 
@@ -6805,7 +6942,7 @@ or
 \end_inset
 
  will decrease.
- Thus, the score of 
+ In the latter case, the score of 
 \emph on
 A 
 \emph default
@@ -6822,7 +6959,8 @@ will (strictly) increase while there will be no change on the scores of
 \emph on
 B
 \emph default
-, leading to 
+.
+ Both cases lead to 
 \begin_inset Formula $A\succ B$
 \end_inset
 
@@ -8354,7 +8492,7 @@ The previous proposition shows that the most valuable property of MJ is
 ing rules, we explore the properties specific to each tie-breaking rule,
  to understand which one should be preferred.
  We first describe how each score reacts to a marginal change in the votes,
- then study the sensitivity of each rule to a small fluctuation in the votes,
+ then study the sensitivity of each rule to small fluctuations in the votes,
  and finally we analyze the properties specific to the majority judgment.
 \end_layout
 
@@ -8396,6 +8534,13 @@ Are there other interesting tie-breaking rule that one may consider ? It
 
 \begin_layout Subsection
 Influence of each group
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Influence-of-each"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9019,7 +9164,7 @@ noprefix "false"
 
 \end_inset
 
- give the relative influence of an infinitesimal shift of voters from opponents
+ gives the relative influence of an infinitesimal shift of voters from opponents
  to proponents.
  More precisely, the first row provides the ratio of the derivative of each
  score with respect to 
@@ -9058,40 +9203,12 @@ p
 \begin_inset Formula $\sigma$
 \end_inset
 
- is an increasing transformation
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Indeed, 
-\begin_inset Formula $\sigma=\frac{1}{2}\frac{p-q}{p+q}=\frac{1}{2}\frac{1-\frac{q}{p}}{1+\frac{q}{p}}=f\left(\underset{+}{\frac{p}{q}}\right)$
-\end_inset
-
- with 
-\begin_inset Formula $f\left(x\right):=\frac{1}{2}\frac{1-\frac{1}{x}}{1+\frac{1}{x}}$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
- of 
+ is an increasing transformation of 
 \begin_inset Formula $\frac{p}{q}$
 \end_inset
 
  and thus the multiplicative analog to 
 \begin_inset Formula $\Delta=p-q$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: show earlier?
-\end_layout
-
 \end_inset
 
 .
@@ -10997,7 +11114,7 @@ literal "false"
  where respondents were asked to grade different distributions 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "fabre_french_2017"
+key "fabre_french_2018"
 literal "false"
 
 \end_inset
@@ -11720,7 +11837,7 @@ noprefix "false"
 \end_inset
 
 ).
- Hence, the tie-breaking score of Hollande would reverse from 
+ Hence, the tie-breaking score of Hollande would have reversed from 
 \begin_inset Formula $+0.451$
 \end_inset
 
@@ -11728,8 +11845,8 @@ noprefix "false"
 \begin_inset Formula $-0.453$
 \end_inset
 
- if 2% of median voters decreased their grade: in such a case, Bayrou would
- win the majority judgment.
+ had 2% of median voters decreased their grade: in such a case, Bayrou would
+ have won the majority judgment.
  Yet, such a small variation would not have put the victory of Hollande
  at risk
 \begin_inset Note Note
@@ -12993,7 +13110,7 @@ Different tie-breaking rules for the highest median applied on a 2016 survey
  Data from 
 \begin_inset CommandInset citation
 LatexCommand citet
-key "fabre_french_2017"
+key "fabre_french_2018"
 literal "false"
 
 \end_inset
@@ -13315,16 +13432,34 @@ c
 \emph default
 the shares of proponents and opponents to a choice relative to its number
  of expressed grades: 
+\begin_inset Formula $p_{c}^{n}:=\frac{1}{E_{c}}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}\geq\alpha_{c}+n\right\} \right|$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $q_{c}^{n}:=\frac{1}{E_{c}}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}\leq\alpha_{c}-n\right\} \right|$
+\end_inset
+
+)
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Formula $p_{c}^{n}:=\frac{1}{E_{c}}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}>\min\left\{ \alpha_{c}+n-1;\,G\right\} \right\} \right|$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \noindent
 and 
 \begin_inset Formula $q_{c}^{n}:=\frac{1}{E_{c}}\left|\left\{ v\in\mathcal{V}\,|\,g_{c,v}<\max\left\{ \alpha_{c}-n+1;\,1\right\} \right\} \right|$
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 , for 
@@ -13364,7 +13499,7 @@ middlemost
 \emph on
 c
 \emph default
-, then
+, then 
 \begin_inset Formula $\ell^{j}\left(c\right)$
 \end_inset
 
@@ -13500,8 +13635,8 @@ and
 F
 \emph default
  share the same lower middlemost grade 0, the lexi-order characterization
- of MJ requires that we compare another rank, say a lower one (the counter-examp
-le should be adapted if we were to compare a higher one).
+ of MJ requires that we compare another rank, say a lower one (the example
+ should be adapted if we were to compare a higher one).
  One could naively think that comparing the first quartile would be natural,
  as 
 \begin_inset Formula $V=4$
@@ -13587,7 +13722,7 @@ E
 status open
 
 \begin_layout Plain Layout
-TODO: extension to kth quantile.
+TODO: extension to kth quantile; strict majority rule.
 \end_layout
 
 \end_inset
@@ -13868,7 +14003,7 @@ noprefix "false"
 ).
 \end_layout
 
-\begin_layout Paragraph*
+\begin_layout Paragraph
 Other features
 \begin_inset Note Note
 status open
