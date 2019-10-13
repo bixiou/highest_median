@@ -1,14 +1,14 @@
-options(download.file.method = "wget"); # For Ubuntu 14.04
+# options(download.file.method = "wget"); # For Ubuntu 14.04
 package <- function(p) { 
   if (!is.element(p, installed.packages()[,1])) {
   install.packages(p); 
   }
   library(p, character.only = TRUE)
 } # loads packages with automatical install if needed
-package("readODS")
+# package("readODS")
 package("clipr")
 package("xtable")
-package("RMallow")
+# package("RMallow")
 package("plotly")
 package("Hmisc")
 package("stringr")
@@ -79,7 +79,7 @@ score <- function(rule="mj", grades=elec2012['Hollande',], k = 0.5, name="", pri
     if (rule=="MJ" | rule=="mj" | rule=="$mj$") return(as.numeric(g + (p>q)*p - (p<=q)*q))
     # else if (rule=="s") return(as.numeric(g + 0.5*(p/(p+q) +k-1 + (p*q==0)*(p-q) + (p+q==0)*0.5))) # old
     # else if (rule=="s") return(as.numeric(g + 0.5*((p-q)/(p+q)) )) # simple
-    else if (rule=='s' | rule=='S' | rule=='sigma' | rule=="$\\sigma$" | rule=="$s$") return(as.numeric(g + 0.5*((p-q)/(p+q)) + 0.5*((g==max(scale))*(0.5-q) + (g==min(scale))*(p-0.5)) )) # the last two terms are for the ultimate tie-breaking rule
+    else if (rule=='s' | rule=='S' | rule=='sigma' | rule=="$\\sigma$" | rule=="$s$") return(as.numeric(g + 0.5*((p-q)/(p+q+3*10^(-8))) + 0.5*((g==max(scale))*(0.5-q) + (g==min(scale))*(p-0.5)) )) # the last two terms are for the ultimate tie-breaking rule
     else if (rule=="D" | rule=="d" | rule=="delta" | rule=="Delta" | rule=="$\\Delta$" | rule=="$d$") return(as.numeric(g + p - q))
     else if (rule=="N" | rule=="n" | rule=="nu" | rule=="$\\nu$" | rule=="$n$") {
       # if (g == min(scale)) { g <- g+1; q <- 1-p; }

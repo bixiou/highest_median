@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1570828122255.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "38|87|65|0|\n",
+    "hash" : "1132462400",
+    "id" : "415D3D36",
+    "lastKnownWriteTime" : 1570845990,
+    "last_content_update" : 1570846019013,
+    "path" : "~/www/highest_median/packages_functions_data.R",
+    "project_path" : "packages_functions_data.R",
+    "properties" : {
+        "cursorPosition" : "415,227",
+        "scrollLine" : "398"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

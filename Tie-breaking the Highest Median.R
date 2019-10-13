@@ -36,7 +36,7 @@ mtext(text = expression(paste(italic(x),  ': share of grades +1')), side = 1, li
 par(mar=old_mar) #  (given 10% of -1, 10% of +2 and the rest of 0)
 
 # Quantile shifts
-start <- Sys.time() # 1.7h
+start <- Sys.time() # 2h
 n <- 100000
 min_group <- 0 
 max_group <- 0.5
@@ -56,9 +56,10 @@ dps <- runif(n, 0, reallocation)
 dqs <- reallocation - dps
 P1s <- p1s + sign(round(1e4 * dps) %% 2 - 0.5) * dps
 Q1s <- q1s + sign(round(1e6 * dqs) %% 2 - 0.5) * dqs 
-
 distribution_scores <- list()
 for (rule in rules) distribution_scores[[rule]] <- ecdf(scores[[rule]])
+# /!\ Run the above only once (do not re-run for the robustness check, do not re-run if you want to obtain exact same results as in paper)
+
 new_scores <- list()
 for (rule in rules) new_scores[[rule]] <- aggregate_scores(rule = rule, grades = data.frame(list(q=Q1s, r=1-P1s-Q1s, p=P1s)), rounds=FALSE)
 rank_shift <- list()
@@ -68,7 +69,7 @@ Sys.time() - start
 # Figure 4: CDF of quantile shifts following a random reallocation of 2% of grades
 plot_rules(rank_shift, "cdf", xlab="Quantile shift (r)", ylab="Share with quantile shift < r", ylim=c(0.96,1), xlim=c(0.1, 1))
 
-  # Table 4: probabilities of large and very large shifts
+# Table 4: probabilities of large and very large shifts
 length(which(rank_shift$D > 0.2))/n # 0.00796
 length(which(rank_shift$s > 0.2))/n # 0.01638
 length(which(rank_shift$n > 0.2))/n # 0.00392
@@ -78,6 +79,35 @@ length(which(rank_shift$D > 0.5))/n # 0.00023
 length(which(rank_shift$s > 0.5))/n # 0.00089
 length(which(rank_shift$n > 0.5))/n # 0.0005
 length(which(rank_shift$mj > 0.5))/n # 0.00898
+
+
+## Footnote 14, Robustness: take dq independent from dp
+start <- Sys.time() # 1h
+reallocation <- 0.02
+dps2 <- runif(n, 0, reallocation)
+dqs2 <- runif(n, 0, reallocation)
+P1s2 <- p1s + sign(round(1e4 * dps2) %% 2 - 0.5) * dps2
+Q1s2 <- q1s + sign(round(1e6 * dqs2) %% 2 - 0.5) * dqs2 
+
+new_scores2 <- list()
+for (rule in rules) new_scores2[[rule]] <- aggregate_scores(rule = rule, grades = data.frame(list(q=Q1s2, r=1-P1s2-Q1s2, p=P1s2)), rounds=FALSE)
+rank_shift2 <- list()
+for (rule in rules) rank_shift2[[rule]] <- abs(distribution_scores[[rule]](new_scores2[[rule]]) - distribution_scores[[rule]](scores[[rule]]))
+Sys.time() - start
+
+# Figure 4 bis: CDF of quantile shifts following a random reallocation of 2% of grades
+plot_rules(rank_shift2, "cdf", xlab="Quantile shift (r)", ylab="Share with quantile shift < r", ylim=c(0.96,1), xlim=c(0.1, 1))
+
+# Table 4 bis: probabilities of large and very large shifts
+length(which(rank_shift2$D > 0.2))/n # 0.0076
+length(which(rank_shift2$s > 0.2))/n # 0.01586
+length(which(rank_shift2$n > 0.2))/n # 0.00413
+length(which(rank_shift2$mj > 0.2))/n # 0.01513
+
+length(which(rank_shift2$D > 0.5))/n # 0.00026
+length(which(rank_shift2$s > 0.5))/n # 0.00085
+length(which(rank_shift2$n > 0.5))/n # 0.00056
+length(which(rank_shift2$mj > 0.5))/n # 0.00785
 
 
 ##### 6. The different rules in practice #####
