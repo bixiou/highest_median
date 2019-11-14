@@ -436,34 +436,13 @@ The paper deals with voting rules that require voters to rate the candidates
  opponents) of a candidate the voters who rate this candidate strictly above
  (resp.
  strictly below) her median grade.
- A 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-natural
-\end_layout
-
-\end_inset
-
-simple rule, called the typical judgment, orders tied candidates by the
+ A simple rule, called the typical judgment, orders tied candidates by the
  difference between their share of proponents and opponents.
  An appealing rule, called the usual judgment, divides this difference by
  the share of median votes.
  An alternative rule, called the central judgment, compares the relative
  shares of proponents and opponents.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-The three new rules are continuous with respect to these shares.
- 
-\end_layout
-
-\end_inset
-
-The usual judgment is continuous with respect to these shares.
+ The usual judgment is continuous with respect to these shares.
  The majority judgment of 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -483,7 +462,31 @@ literal "false"
 
  aims to characterize the majority judgment and states that only a certain
  class of functions share some valuable characteristics, like monotonicity.
- We relativize
+ We relativize this result, by emphasizing that it only holds true for continuou
+s scales of grades.
+ Properties remaining specific to the majority judgment in the discrete
+ case are idiosyncratic features rather than universally sought criteria,
+ and other median-based rules exist that are both monotonic and continuous.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+natural
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The three new rules are continuous with respect to these shares.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
@@ -496,35 +499,25 @@ the paper rightfully points out that the claim doesn’t hold for a finite
 
 \end_inset
 
- this result, by emphasizing that it only holds for continuous scales of
- grades.
- Properties remaining specific to the majority judgment in the discrete
- case are idiosyncratic features rather than universally sought criteria,
- and other median-based rules exist that are both monotonic and continuous.
+
 \end_layout
 
 \begin_layout Acknowledgements
+I am grateful to Jean-François Laslier,
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-I am grateful to Jean-François Laslier for his comments and suggestions.
- TODO
+for his comments and suggestions.
+ I am thankful to
 \end_layout
 
 \end_inset
 
-I am thankful to Rida Laraki for his comments
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-François Durand for his proofreading
-\end_layout
-
-\end_inset
-
-, and to Maria Sarmiento for the grammar check.
+ Rida Laraki as well as three anonymous reviewers for their comments and
+ suggestions.
+ I am thankful to François Durand for the proofreading.
+ I thank Maria Sarmiento for the grammar check.
 \end_layout
 
 \begin_layout Standard
@@ -536,7 +529,7 @@ Replication files
 \begin_inset space \quad{}
 \end_inset
 
-All the code, figures and data is available on 
+All the code, figures and data are available on 
 \begin_inset CommandInset href
 LatexCommand href
 name "github.com/bixiou/highest_median"
@@ -736,6 +729,44 @@ linenumbers
 
 \end_inset
 
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Here is my Job Market Paper: Tie-breaking the Highest Median: Alternatives
+ to the Majority Judgment (Revise & Resubmit, Social Choice & Welfare) The
+ paper deals with voting rules that require voters to rate the candidates
+ on a finite evaluation scale and then elect a candidate whose median grade
+ is maximum.
+ These rules differ by the way they choose among candidates with the same
+ median grade.
+ Call proponents (resp.
+ opponents) of a candidate the voters who rate this candidate strictly above
+ (resp.
+ strictly below) her median grade.
+ A simple rule, called the typical judgment, orders tied candidates by the
+ difference between their share of proponents and opponents.
+ An appealing rule, called the usual judgment, divides this difference by
+ the share of median votes.
+ An alternative rule, called the central judgment, compares the relative
+ shares of proponents and opponents.
+ The usual judgment is continuous with respect to these shares.
+ The majority judgment of Balinski & Laraki (2007) considers the largest
+ of these shares and loses continuity.
+ A result in Balinski & Laraki (2014) aims to characterize the majority
+ judgment and states that only a certain class of functions share some valuable
+ characteristics, like monotonicity.
+ We relativize this result, by emphasizing that it only holds true for continuou
+s scales of grades.
+ Properties remaining specific to the majority judgment in the discrete
+ case are idiosyncratic features rather than universally sought criteria,
+ and other median-based rules exist that are both monotonic and continuous.
+ 
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -768,9 +799,19 @@ theory of measuring, electing and ranking
 \end_inset
 
 .
- This theory demonstrates the valuable properties of a voting system based
- on evaluations rather than on rankings or single marks, where the choice
- (or candidate) obtaining the highest median evaluation is elected.
+ This theory demonstrates 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+the 
+\end_layout
+
+\end_inset
+
+valuable properties of a voting system based on evaluations rather than
+ on rankings or single marks, where the choice (or candidate) obtaining
+ the highest median evaluation is elected.
  Balinski & Laraki (BL) have proposed an elegant set of rules electing a
  choice with the highest median, and coined this voting system the 
 \begin_inset Quotes eld
@@ -783,8 +824,8 @@ majority judgment
 .
  Ties between choices with the same median grades are resolved by comparing
  the shares of grades above and below the median, respectively: the choice
- with the largest share wins if the corresponding grades are above the median,
- and loses if they are below.
+ with the largest of these shares wins if the grades of that largest share
+ are above the median, and loses if they are below.
  
 \begin_inset Note Note
 status open
@@ -911,7 +952,7 @@ parler du livre, qui fait l'hypothèse d'une échelle continue
 
 \end_inset
 
- We will present two such rules in section 
+ We will present three such rules in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Different-tie-breaking-rules"
@@ -921,7 +962,7 @@ noprefix "false"
 
 \end_inset
 
-, after describing the setting and notations of the paper in section 
+, after describing the setting and notations of the paper in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Setting"
@@ -932,7 +973,7 @@ noprefix "false"
 \end_inset
 
 .
- Then, the main result is exposed in section 
+ Then, the main result is exposed in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Properties-of-these"
@@ -954,7 +995,7 @@ disprove a claim by
 
  clear up ambiguity of a proposition of BL on the uniqueness of monotonicity
  by showing that our three voting rules are counter-examples.
- In section 
+ In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Properties-of-the"
@@ -977,7 +1018,7 @@ new section?
 
 \end_inset
 
-Finally, section 
+Finally, Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:The-different-rules"
@@ -2277,11 +2318,25 @@ c
 \emph on
 c
 \emph default
- a higher or a lower grade than 
+, respectively, a higher and a lower grade than 
 \emph on
 c
 \emph default
-'s median grade.
+'s median grade
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a higher or a lower grade than 
+\emph on
+c
+\emph default
+'s median grade
+\end_layout
+
+\end_inset
+
+.
  The shares of proponents and opponents are respectively noted 
 \emph on
 p
@@ -2916,7 +2971,7 @@ We define the
 j
 \emph default
 th order function 
-\begin_inset Formula $\ell^{j}:\mathcal{C}\rightarrow\mathcal{G}$
+\begin_inset Formula $\ell^{j}:\mathcal{G^{\mathcal{V}}}\rightarrow\mathcal{G}$
 \end_inset
 
  as the function that returns the 
@@ -2924,6 +2979,67 @@ th order function
 j
 \emph default
 th lowest grade of a choice.
+ In the following, we abusively write 
+\begin_inset Formula $\ell^{j}\left(c\right)$
+\end_inset
+
+ as a shortcut for 
+\begin_inset Formula $\ell^{j}\left(\left(g_{c,v}\right)_{v\in\mathcal{V}}\right)$
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $\ell_{\Phi}^{j}:\mathcal{C}\rightarrow\mathcal{G}$
+\end_inset
+
+ as the function that returns the 
+\emph on
+j
+\emph default
+th lowest grade of a choice.
+ In the following, we omit the index 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ that signals the dependence of 
+\begin_inset Formula $\ell_{\Phi}^{j}$
+\end_inset
+
+ to the voting profile
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $\ell^{j}:\mathcal{G}^{\mathcal{C}\times\mathcal{V}}\times\mathcal{C}\rightarrow\mathcal{G}$
+\end_inset
+
+ as the function that returns the 
+\emph on
+j
+\emph default
+th lowest grade of a choice.
+ In the following, we omit the argument 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ that signals the dependence of 
+\begin_inset Formula $\ell^{j}\left(\Phi,c\right)$
+\end_inset
+
+ to the voting profile
+\end_layout
+
+\end_inset
+
+.
  We define the 
 \emph on
 lower middlemost
@@ -3095,7 +3211,7 @@ the author should explain the meaning of the addition symbol
 \end_inset
 
 For 
-\begin_inset Formula $n\in\left(0;G\right)$
+\begin_inset Formula $n\in\left\llbracket 1;G-1\right\rrbracket $
 \end_inset
 
 , we denote by 
@@ -3408,12 +3524,19 @@ c
 
 
 \emph default
- are ordered lexicographically starting with the median grade, followed
- with a (primary) score which depends exclusively on the tuple 
+ are ordered lexicographically starting a 
+\emph on
+primary score
+\emph default
+ which depends exclusively on the tuple 
 \begin_inset Formula $\left(\alpha_{c},p_{c},q_{c}\right)$
 \end_inset
 
-, and completed with complementary scores for rare cases where ties remain.
+ (and preserves the ranking of median grades), and completed with 
+\emph on
+complementary scores
+\emph default
+ for rare cases where ties remain.
 \begin_inset Note Note
 status open
 
@@ -3424,7 +3547,7 @@ rewrite this #1
 \end_inset
 
  One can grasp the intuition behind these rules with the graphical example
- of section 
+ of Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:These-tie-breaking-rules"
@@ -3463,7 +3586,17 @@ literal "false"
 
 .
  We do not further detail these approaches, because they contain theoretical
- inputs that are beyond the scope of the present paper.
+ considerations
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+inputs
+\end_layout
+
+\end_inset
+
+ that are beyond the scope of the present paper.
  
 \begin_inset Note Note
 status open
@@ -3913,8 +4046,8 @@ Intuitively in MJ, the largest share of proponents (
 \begin_inset Formula $q_{c}$
 \end_inset
 
-) determines the fate of the vote: if the largest share is the proponents
- of 
+) determines the outcome of the vote: if the largest share corresponds to
+ the proponents of 
 \emph on
 c
 \emph default
@@ -3922,7 +4055,7 @@ c
 \emph on
 c 
 \emph default
-is elected; if instead it is the opponents of 
+is elected; if instead it corresponds to the opponents of 
 \emph on
 c
 \emph default
@@ -4159,7 +4292,17 @@ literal "false"
 
 \end_inset
 
- propose an equivalent description of MJ.
+ propose another
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+equivalent
+\end_layout
+
+\end_inset
+
+ description of MJ.
  The choice with the highest 
 \begin_inset Note Note
 status collapsed
@@ -4171,7 +4314,7 @@ lower middlemost
 \end_inset
 
 median grade is elected.
- In case of a tie, the order must depend on remaining grades, so the 
+ In case of a tie, the order must depend on remaining grades, so a 
 \begin_inset Note Note
 status collapsed
 
@@ -4181,7 +4324,7 @@ lower middlemost
 
 \end_inset
 
-median grade is dropped.
+single median vote is dropped.
  The operation is then repeated on remaining grades, until one choice has
  a 
 \begin_inset Note Note
@@ -4194,7 +4337,8 @@ lower middlemost
 \end_inset
 
 median grade higher than the others.
- In our example above, this amounts to compare, in that order and for 
+ In our example above, this means comparing in the following order, and
+ for 
 \begin_inset Formula $c\in{\cal C}$
 \end_inset
 
@@ -4269,6 +4413,309 @@ noprefix "false"
  formalizes this idea.
 \end_layout
 
+\begin_layout Remark
+Both definitions of MJ are equivalent.
+ Indeed, in the definition that uses scores, the first group 
+\begin_inset Formula $p^{n}$
+\end_inset
+
+ or 
+\begin_inset Formula $q^{n}$
+\end_inset
+
+ that differ between the candidates provides the first grade that differs
+ in the voting profile when grades are ordered as in the recursive definition
+ of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "balinski_judge:_2014"
+literal "false"
+
+\end_inset
+
+, i.e.
+ giving precedence to the middlemost ones.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Hence, the comparison of quantiles in the recursive definition of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "balinski_judge:_2014"
+literal "false"
+
+\end_inset
+
+ is equivalent to the comparison of groups as in both cases middlemost intervals
+ have precedence.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Remark
+Both definitions of MJ are equivalent.
+ Indeed, in the definition that uses scores, the first group 
+\begin_inset Formula $p^{n}$
+\end_inset
+
+ or 
+\begin_inset Formula $q^{n}$
+\end_inset
+
+ that differ between the candidates provides the middlemost grade that differs
+ in the voting profile.
+ Hence, comparing the quantiles as in the recursive definition of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "balinski_judge:_2014"
+literal "false"
+
+\end_inset
+
+ is equivalent to comparing the groups, as in both cases middlemost grades
+ are considered first.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Both definitions of MJ are equivalent.
+ Indeed, the first quantile at which the grades of two candidates differ
+ in the recursive definition of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "balinski_judge:_2014"
+literal "false"
+
+\end_inset
+
+ correspond to the first group 
+\begin_inset Formula $p^{n}$
+\end_inset
+
+ or 
+\begin_inset Formula $q^{n}$
+\end_inset
+
+ that differ between the candidates in the definition that uses scores.
+ Indeed, comparing the groups or the quantiles is equivalent, as they are
+ both considered in the same order, progressively moving away from the middle
+ of the distribution.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO! update figure
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ternary plots/all_rhombus_big_invAB_trim.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ternary-plot-showing"
+
+\end_inset
+
+Ternary plot showing the scores of different tie-breaking rules.
+ Tuples 
+\begin_inset Formula $\left(p,q,1-p-q\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $p,q\in\left(0;1\right)$
+\end_inset
+
+ are represented in barycentric coordinates on the frame 
+\begin_inset Formula $\left(+1,-1,0\right)$
+\end_inset
+
+.
+ The interior of the red rhombus corresponds to 
+\begin_inset Formula $p,q\leq\frac{1}{2}$
+\end_inset
+
+.
+ In such cases, the median grade is 0, and the 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+share 
+\emph on
+p
+\emph default
+ (resp.
+ 
+\emph on
+q
+\emph default
+) of
+\end_layout
+
+\end_inset
+
+grades above (resp.
+ below) 0 are treated as 
+\begin_inset Formula $+1$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $-1$
+\end_inset
+
+).
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+At the bottom right (resp.
+ left) of each plot, 
+\begin_inset Formula $p>\frac{1}{2}$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $q>\frac{1}{2}$
+\end_inset
+
+) represent tuple 
+\begin_inset Formula $\left(+1,0,q\right)$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $\left(-1,p,0\right)$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+White lines connect candidates with the same score.
+\end_layout
+
+\end_inset
+
+ 
+\emph on
+A
+\emph default
+, 
+\emph on
+B, C 
+\emph default
+and 
+\emph on
+D 
+\emph default
+are the example candidates described in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Comparison-of-different"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+ has been normalized in 
+\begin_inset Formula $\left(-\frac{1}{2};\frac{1}{2}\right)$
+\end_inset
+
+
+\emph on
+ 
+\emph default
+by the transformation 
+\begin_inset Formula $\sigma\mapsto\sigma-\frac{1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Alternatives to the Majority Judgment
 \end_layout
@@ -4295,7 +4742,7 @@ is the sum of the median grade
 
  and of a tie-breaking score.
  The latter is comprised in 
-\begin_inset Formula $\left(-\frac{1}{2};\frac{1}{2}\right)$
+\begin_inset Formula $\left(-\frac{1}{2};\frac{1}{2}\right]$
 \end_inset
 
  so that primary scores do not overlap when median grades are distinct.
@@ -4411,8 +4858,18 @@ The primary score is defined as
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Intuitively, the winner is the one with the highest balance between proponents
  and opponents.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -4433,6 +4890,10 @@ status collapsed
 \end_inset
 
 Here, the tie-breaking score is given by the following formula:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Foot
 status open
 
@@ -4455,9 +4916,14 @@ In the case
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
-\sigma_{c}:=\frac{1}{2}\frac{p_{c}-q_{c}}{p_{c}+q_{c}}\label{eq:s}
+\sigma_{c}:=\frac{1}{2}\frac{p_{c}-q_{c}}{p_{c}+q_{c}+\epsilon}\label{eq:s}
 \end{equation}
 
 \end_inset
@@ -4614,14 +5080,31 @@ Is it really necessary to distinguish tie-breaking score and primary score:
 \end_layout
 
 \begin_layout Standard
-Intuitively, the winner is the one with the highest share of proponents
+where 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is an arbitrarily small number (taken below 
+\begin_inset Formula $\frac{1}{V}$
+\end_inset
+
+, say 
+\begin_inset Formula $\epsilon=10^{-10}$
+\end_inset
+
+) insuring that the denominator always remains positive.
+ Intuitively, the winner is the one with the highest share of proponents
  within its non-median voters, i.e.
  the highest 
 \begin_inset Formula $\frac{p}{p+q}$
 \end_inset
 
 .
- Indeed, 
+ Indeed, omitting 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+, 
 \begin_inset Formula $\sigma=\frac{1}{2}\left(\frac{p}{p+q}-\left(1-\frac{p}{p+q}\right)\right)=\frac{p}{p+q}-\frac{1}{2}$
 \end_inset
 
@@ -4686,6 +5169,14 @@ Replace
 \begin_inset Formula $\sigma$
 \end_inset
 
+ and 
+\emph on
+r
+\emph default
+ by 
+\emph on
+m
+\emph default
 ) and 
 \begin_inset Quotes eld
 \end_inset
@@ -4715,6 +5206,10 @@ Normalized difference between non-median groups
 \end_layout
 
 \begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
 Notice that, for a given size of 
 \emph on
 median group
@@ -4723,7 +5218,24 @@ median group
 \begin_inset Formula $r_{c}:=1-p_{c}-q_{c}$
 \end_inset
 
-, the difference 
+, the inequality 
+\begin_inset Formula $p_{c}\leq\frac{1}{2}$
+\end_inset
+
+ provides an upper bound on 
+\begin_inset Formula $\Delta_{c}$
+\end_inset
+
+: 
+\begin_inset Formula $\Delta_{c}=p_{c}-q_{c}=r_{c}-1+2p_{c}\leq r_{c}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+the difference 
 \begin_inset Formula $\Delta_{c}$
 \end_inset
 
@@ -4751,13 +5263,18 @@ median group
 \begin_inset Formula $q_{c}\geq0$
 \end_inset
 
-).
+)
+\end_layout
+
+\end_inset
+
+.
  By symmetry, the difference 
 \begin_inset Formula $\Delta_{c}$
 \end_inset
 
  is thus bounded by 
-\begin_inset Formula $\left(-r_{c};r_{c}\right)$
+\begin_inset Formula $\left[-r_{c};r_{c}\right]$
 \end_inset
 
 , and it is tempting to normalize it by 
@@ -4766,6 +5283,20 @@ median group
 
  to define another tie-breaking score:
 \begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The denominator is always positive as we have 
+\begin_inset Formula $q_{c}<\frac{1}{2}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{c}\leq\frac{1}{2}$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
@@ -4782,6 +5313,11 @@ In the case
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4834,155 +5370,6 @@ status collapsed
 
 \begin_layout Plain Layout
 naming it Variation?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide true
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename ternary plots/all_rhombus_invAB_trim.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Ternary-plot-showing"
-
-\end_inset
-
-Ternary plot showing the scores of different tie-breaking rules.
- Tuples 
-\begin_inset Formula $\left(p,q,1-p-q\right)$
-\end_inset
-
- for 
-\begin_inset Formula $p,q\in\left(0;1\right)$
-\end_inset
-
- are represented in barycentric coordinates on the frame 
-\begin_inset Formula $\left(+1,-1,0\right)$
-\end_inset
-
-.
- The interior of the red rhombus corresponds to 
-\begin_inset Formula $p,q\leq\frac{1}{2}$
-\end_inset
-
-.
- In such cases, the median grade is 0, and the 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-share 
-\emph on
-p
-\emph default
- (resp.
- 
-\emph on
-q
-\emph default
-) of
-\end_layout
-
-\end_inset
-
-grades above (resp.
- below) 0 are treated as 
-\begin_inset Formula $+1$
-\end_inset
-
- (resp.
- 
-\begin_inset Formula $-1$
-\end_inset
-
-).
- 
-\emph on
-A
-\emph default
-, 
-\emph on
-B, C 
-\emph default
-and 
-\emph on
-D 
-\emph default
-are the example candidates described in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Comparison-of-different"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Formula $\sigma$
-\end_inset
-
- has been normalized in 
-\begin_inset Formula $\left(-\frac{1}{2};\frac{1}{2}\right)$
-\end_inset
-
-
-\emph on
- 
-\emph default
-by the transformation 
-\begin_inset Formula $\sigma\mapsto\sigma-\frac{1}{2}$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -5050,8 +5437,19 @@ of proponents (resp.
 
 \emph default
  of opponents).
- This plot makes clear that different rules yield different rankings, and
- reveals the discontinuities present in all rules but the normalized difference
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This plot
+\end_layout
+
+\end_inset
+
+The dispositions of the white lines, which connect candidates with the same
+ score, make clear that different rules yield different rankings and reveals
+ the discontinuities present in all rules but the normalized difference
  (see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5070,6 +5468,34 @@ status collapsed
 y of the majority judgment
 \end_layout
 
+\end_inset
+
+.
+ Notice that for the scale 
+\begin_inset Formula $\left\{ -1;0;+1\right\} $
+\end_inset
+
+ that is used in the ternary plot, tuples of the form 
+\begin_inset Formula $\left(\alpha_{c},p_{c},q_{c}\right)=\left(+1,0,q\right)$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $\left(-1,p,0\right)$
+\end_inset
+
+) are unambiguously represented at the bottom right (resp.
+ left) of each plot through the extension of 
+\emph on
+p 
+\emph default
+(resp.
+ 
+\emph on
+q
+\emph default
+) to 
+\begin_inset Formula $\left(\frac{1}{2};1\right)$
 \end_inset
 
 .
@@ -5164,7 +5590,7 @@ normalized difference
 \begin_inset Formula $\nu_{c}^{k}=\nu_{c}\cdot\frac{k\cdot\left(1-k\right)}{k^{2}+\left(1-k\right)^{2}}$
 \end_inset
 
-.
+ to avoid that scores with distinct medians overlap.
  
 \begin_inset Note Note
 status open
@@ -5632,7 +6058,76 @@ outermost
 \begin_inset Formula $\left(-q_{c}^{1}\right)_{c}$
 \end_inset
 
- last).
+ last — see Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Summary-of-four"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Of course, we could have chosen an ultimate tie-breaking rule following
+ dissent instead of consensus, and/or an outermost one
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(see Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Summary-of-four"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+.
+ However, as 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "balinski_judge:_2014"
+literal "false"
+
+\end_inset
+
+ argue, following consensus is consistent with deciding upon the lower middlemos
+t grade (instead of the upper one, 
+\begin_inset Formula $\ell^{\left\lceil \frac{V+1}{2}\right\rceil }$
+\end_inset
+
+), in that a majority always grades the winner at least as much as its lower
+ middlemost grade; while being innermost is consistent with deciding upon
+ the middlemost grades.
+ That being said, choosing another ultimate tie-breaking rule would have
+ virtually no consequence on ballots with many voters
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+a large electorate
+\end_layout
+
+\end_inset
+
+, as an ultimate tie is highly improbable in such cases.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
@@ -5874,49 +6369,6 @@ outermost
 \end_layout
 
 \begin_layout Standard
-Of course, we could have chosen an ultimate tie-breaking rule following
- dissent instead of consensus, and/or an outermost one (see Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Summary-of-four"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
- However, as 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "balinski_judge:_2014"
-literal "false"
-
-\end_inset
-
- argue, following consensus is consistent with deciding upon the lower middlemos
-t grade (instead of the upper one, 
-\begin_inset Formula $\ell^{\left\lceil \frac{V+1}{2}\right\rceil }$
-\end_inset
-
-), in that a majority always grades the winner at least as much as its lower
- middlemost grade; while being innermost is consistent with deciding upon
- the middlemost grades.
- That being said, choosing another ultimate tie-breaking rule would have
- virtually no consequence on votes with 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-many voters
-\end_layout
-
-\end_inset
-
-a large electorate, as an ultimate tie is highly improbable in such cases.
-\end_layout
-
-\begin_layout Standard
 The voting systems
 \begin_inset Note Note
 status open
@@ -6116,8 +6568,17 @@ improperly
 
 apply a result from social choice theory that is only valid for a continuous
  set of grades.
- Yet in our setting (as in most –if not all– practical applications), the
- set of grades is finite.
+ Yet in our setting
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(as in most –if not all– practical applications) SNIF
+\end_layout
+
+\end_inset
+
+, the set of grades is finite.
  In any case, it could not be otherwise, as the definitions of the alternative
  tie-breaking rules require a finite set of grades.
 \end_layout
@@ -6216,6 +6677,11 @@ present in both profiles
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Remark
+IIAR imposes that the ranking between two choices does not depend on the
+ votes over other choices nor on the set of choices.
 \end_layout
 
 \begin_layout Standard
@@ -6621,9 +7087,9 @@ Phi of all grades"?
 \end_layout
 
 \begin_layout Remark
-Order consistency requires that the social-ranking function be insensitive
- to a relabeling of grades, provided that the relabeling preserves the order
- between grades.
+Order consistency requires that the social-ranking function should be insensitiv
+e to a relabeling of grades, provided that the relabeling preserves the
+ order between grades.
  In our setting, any social-ranking is trivially order consistent, as the
  only strictly increasing transformation of a finite set (of grades) is
  the identity function.
@@ -8396,7 +8862,17 @@ literal "false"
 
 \end_inset
 
- is false when the set of grades is finite
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+is false
+\end_layout
+
+\end_inset
+
+does not apply when the set of grades is finite
 \begin_inset Note Note
 status collapsed
 
@@ -8423,6 +8899,10 @@ monotonic
 \end_inset
 
 .
+ Indeed, there exist social-ranking functions other than lexi-order functions
+ that are choice monotone and order consistent.
+ Examples of those are the typical judgment (D), the central judgment (S)
+ and the usual judgment (N).
 \begin_inset Note Note
 status open
 
@@ -8446,6 +8926,25 @@ exaggerated: Instead of stating “Theorem 11 of BL is false”, the author
 \end_layout
 
 \begin_layout Proof
+This ensues directly from Lemmas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:The-tie-breaking-rules"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:-is-not"
+
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8472,6 +8971,11 @@ status collapsed
 \end_inset
 
  and order consistent.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -8545,7 +9049,6 @@ name "subsec:Influence-of-each"
 
 \begin_layout Standard
 \begin_inset Float table
-placement b
 wide false
 sideways false
 status open
@@ -9278,7 +9781,6 @@ name "subsec:Sensitivity-to-small"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement b
 wide false
 sideways false
 status open
@@ -9542,7 +10044,357 @@ s.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/bigshift.png
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CDF of quantile shift following a random reallocation of 2% of grades of
+ a random choice.
+ 
+\emph on
+E.g.
+ the probability that the rank
+\emph default
+ 
+\emph on
+of a choice shifts by less than 45 percentiles after a random reallocation
+ of 2% of grades is
+\emph default
+ 
+\emph on
+99% for MJ
+\emph default
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Probability-that-a"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can also assess the sensitivity to small fluctuations using numerical
+ simulations.
+ Taking a profile with many choices sharing the same median grade, we can
+ measure the shift in ranking triggered by a small fluctuation in the grades
+ of one choice.
+ To this end, we draw randomly 
+\begin_inset Formula $100,000$
+\end_inset
+
+ 
+\emph on
+p 
+\emph default
+and 
+\emph on
+q 
+\emph default
+independently from the uniform distribution over 
+\begin_inset Formula $\left(0;0.5\right)$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We choose the uniform distribution since we have no good prior on the real-world
+ distribution of grades of an ordinary choice.
+\end_layout
+
+\end_inset
+
+ We rank all choices according to each rule.
+ Then, we reallocate 2% of the grades of each choice independently.
+ For each choice, we draw 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ uniformly in 
+\begin_inset Formula $\left[0;0.02\right]$
+\end_inset
+
+ and draw with probability 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+ the sign of the variation in 
+\emph on
+p 
+\emph default
+and, independently, the sign for 
+\emph on
+q
+\emph default
+.
+ Then, we increase or decrease 
+\emph on
+p
+\emph default
+ by 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ and 
+\emph on
+q 
+\emph default
+by 
+\begin_inset Formula $0.02-\varepsilon$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Drawing the variation in 
+\begin_inset Formula $q$
+\end_inset
+
+ independently from that in 
+\emph on
+p
+\emph default
+ (from a uniform distribution in 
+\begin_inset Formula $\left[-0.02;0.02\right]$
+\end_inset
+
+) yields equivalent results.
+\end_layout
+
+\end_inset
+
+ Finally, we measure the quantile shift in the 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ordered distribution
+\end_layout
+
+\end_inset
+
+rankings following each reallocation, i.e.
+ the absolute difference between the original quantile and the quantile
+ of the perturbed choice in the distribution of the 100,000 unperturbed
+ scores.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+A more applied way to grasp the sensitivity to small fluctuations is to
+ measure the shift in ranking triggered by a small fluctuation in the grades
+ of one choice, among a profile with many choices sharing the same median
+ grade.
+ Having no good prior on the real-world distribution of grades of an ordinary
+ choice, we draw 
+\emph on
+p 
+\emph default
+and 
+\emph on
+q 
+\emph default
+independently from the uniform distribution over 
+\begin_inset Formula $\left(0;0.5\right)$
+\end_inset
+
+.
+ We make 
+\begin_inset Formula $100,000$
+\end_inset
+
+ random draws and rank all choices according to each score.
+ We then reallocate randomly 2% of the grades of each choice; that is, we
+ draw 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ uniformly in 
+\begin_inset Formula $\left[0;0.02\right]$
+\end_inset
+
+ and increase or decrease 
+\emph on
+p
+\emph default
+ by 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ and 
+\emph on
+q 
+\emph default
+by 
+\begin_inset Formula $0.02-\varepsilon$
+\end_inset
+
+ (the signs of the changes in 
+\emph on
+p 
+\emph default
+and 
+\emph on
+q 
+\emph default
+being drawn independently with probability 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+).
+ Finally, we measure the quantile shift in the ordered distribution of choices
+ following each reallocation.
+ 
+\end_layout
+
+\end_inset
+
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Probability-that-a"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+the CDF of quantile shifts (
+\emph on
+r
+\emph default
+) for 
+\emph on
+r
+\emph default
+ higher than 0.1.
+ i.e.
+ 
+\end_layout
+
+\end_inset
+
+the probability that the quantile shift is lower than a given quantile 
+\emph on
+r 
+\emph default
+(
+\begin_inset Formula $r>0.1$
+\end_inset
+
+), for each rule.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Sensitivity-to-small"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports the probabilities that a quantile shift is large (i.e.
+ higher than 
+\begin_inset Formula $20$
+\end_inset
+
+ percentiles) or very large (i.e.
+ higher than 50 percentiles).
+ It confirms that the majority judgment is the rule most prone to large
+ or very large shifts following small fluctuations, as these probabilities
+ are 4 times and 20 times higher for MJ than for 
+\emph on
+
+\begin_inset Formula $N$
+\end_inset
+
+
+\emph default
+, respectively.
+ Compared to 
+\begin_inset Formula $N$
+\end_inset
+
+, 
+\begin_inset Formula $D$
+\end_inset
+
+ and 
+\begin_inset Formula $S$
+\end_inset
+
+ have similar probabilities of very large shifts (below 
+\begin_inset Formula $1\permil$
+\end_inset
+
+) but they have higher probabilities of large shifts (0.8 and 1.6 respectively,
+ compared to 0.4 for 
+\begin_inset Formula $N$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Overall, the normalized difference 
+\begin_inset Formula $N$
+\end_inset
+
+ is the most appealing rule regarding the criteria of continuity and of
+ low sensitivity to small fluctuations.
+ Concerning this latter criterion, the majority judgment is hardly satisfactory,
+ as it is 20 times more prone to very large shifts following small fluctuations
+ than the normalized difference.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
+placement b
 wide false
 sideways false
 status open
@@ -9816,332 +10668,6 @@ Proba shift
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement b
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename images/bigshift.png
-	width 100col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-CDF of quantile shift following a random reallocation of 2% of grades of
- a random choice.
- 
-\emph on
-E.g.
- the probability that the rank
-\emph default
- 
-\emph on
-of a choice shifts by less than 45 percentiles after a random reallocation
- of 2% of grades is
-\emph default
- 
-\emph on
-99% for MJ
-\emph default
-.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Probability-that-a"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We can also assess the sensitivity to small fluctuations using numerical
- simulations.
- Taking a profile with many choices sharing the same median grade, we can
- measure the shift in ranking triggered by a small fluctuation in the grades
- of one choice.
- To this end, we draw randomly 
-\begin_inset Formula $100,000$
-\end_inset
-
- 
-\emph on
-p 
-\emph default
-and 
-\emph on
-q 
-\emph default
-independently from the uniform distribution over 
-\begin_inset Formula $\left(0;0.5\right)$
-\end_inset
-
-.
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-We choose the uniform distribution since we have no good prior on the real-world
- distribution of grades of an ordinary choice.
-\end_layout
-
-\end_inset
-
- We rank all choices according to each rule.
- Then, we reallocate 2% of the grades of each choice independently.
- For each choice, we draw 
-\begin_inset Formula $\varepsilon$
-\end_inset
-
- uniformly in 
-\begin_inset Formula $\left[0;0.02\right]$
-\end_inset
-
- and draw with probability 
-\begin_inset Formula $\frac{1}{2}$
-\end_inset
-
- the sign of the variation in 
-\emph on
-p 
-\emph default
-and, independently, the sign for 
-\emph on
-q
-\emph default
-.
- Then, we increase or decrease 
-\emph on
-p
-\emph default
- by 
-\begin_inset Formula $\varepsilon$
-\end_inset
-
- and 
-\emph on
-q 
-\emph default
-by 
-\begin_inset Formula $0.02-\varepsilon$
-\end_inset
-
-.
- Finally, we measure the quantile shift in the 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-ordered distribution
-\end_layout
-
-\end_inset
-
-rankings following each reallocation.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-A more applied way to grasp the sensitivity to small fluctuations is to
- measure the shift in ranking triggered by a small fluctuation in the grades
- of one choice, among a profile with many choices sharing the same median
- grade.
- Having no good prior on the real-world distribution of grades of an ordinary
- choice, we draw 
-\emph on
-p 
-\emph default
-and 
-\emph on
-q 
-\emph default
-independently from the uniform distribution over 
-\begin_inset Formula $\left(0;0.5\right)$
-\end_inset
-
-.
- We make 
-\begin_inset Formula $100,000$
-\end_inset
-
- random draws and rank all choices according to each score.
- We then reallocate randomly 2% of the grades of each choice; that is, we
- draw 
-\begin_inset Formula $\varepsilon$
-\end_inset
-
- uniformly in 
-\begin_inset Formula $\left[0;0.02\right]$
-\end_inset
-
- and increase or decrease 
-\emph on
-p
-\emph default
- by 
-\begin_inset Formula $\varepsilon$
-\end_inset
-
- and 
-\emph on
-q 
-\emph default
-by 
-\begin_inset Formula $0.02-\varepsilon$
-\end_inset
-
- (the signs of the changes in 
-\emph on
-p 
-\emph default
-and 
-\emph on
-q 
-\emph default
-being drawn independently with probability 
-\begin_inset Formula $\frac{1}{2}$
-\end_inset
-
-).
- Finally, we measure the quantile shift in the ordered distribution of choices
- following each reallocation.
- 
-\end_layout
-
-\end_inset
-
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Probability-that-a"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-the CDF of quantile shifts (
-\emph on
-r
-\emph default
-) for 
-\emph on
-r
-\emph default
- higher than 0.1.
- i.e.
- 
-\end_layout
-
-\end_inset
-
-the probability that the quantile shift is lower than a given quantile 
-\emph on
-r 
-\emph default
-(
-\begin_inset Formula $r>0.1$
-\end_inset
-
-), for each rule.
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Sensitivity-to-small"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- reports the probabilities that a quantile shift is large (i.e.
- higher than 
-\begin_inset Formula $20$
-\end_inset
-
- percentiles) or very large (i.e.
- higher than 50 percentiles).
- It confirms that the majority judgment is the rule most prone to large
- or very large shifts following small fluctuations, as these probabilities
- are 4 times and 20 times higher for MJ than for 
-\emph on
-
-\begin_inset Formula $N$
-\end_inset
-
-
-\emph default
-, respectively.
- Compared to 
-\begin_inset Formula $N$
-\end_inset
-
-, 
-\begin_inset Formula $D$
-\end_inset
-
- and 
-\begin_inset Formula $S$
-\end_inset
-
- have similar probabilities of very large shifts (below 
-\begin_inset Formula $1\permil$
-\end_inset
-
-) but they have higher probabilities of large shifts (0.8 and 1.6 respectively,
- compared to 0.4 for 
-\begin_inset Formula $N$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-Overall, the normalized difference 
-\begin_inset Formula $N$
-\end_inset
-
- is the most appealing rule regarding the criteria of continuity and of
- low sensitivity to small fluctuations.
- Concerning this latter criterion, the majority judgment is hardly satisfactory,
- as it is 20 times more prone to very large shifts following small fluctuations
- than the normalized difference.
 \end_layout
 
 \begin_layout Standard
@@ -10849,7 +11375,7 @@ noprefix "false"
  strict majority rule.
  More importantly, the universally sought properties of MJ only apply to
  polarized pairs of choices, which generally do not occur in practice (see
- section 
+ Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:The-different-rules"
@@ -11787,7 +12313,7 @@ Finally, the discontinuity of the majority judgment at
 \begin_inset Formula $p=q$
 \end_inset
 
- discussed in section 
+ discussed in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Sensitivity-to-small"
@@ -12067,8 +12593,8 @@ eject
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
-bibfiles "/var/www/bibs/Social_choice"
-options "/var/www/bibs/plainnat_no_url_no_note"
+bibfiles "C:/Users/Adrien/Google Drive/Economie/Articles/Social_choice"
+options "C:/Users/Adrien/Google Drive/Economie/Articles/plainnat_no_url_no_note"
 
 \end_inset
 
@@ -13734,16 +14260,6 @@ TODO: extension to kth quantile; strict majority rule.
 With the appropriate formalization just described, all the results of the
  paper can be as easily derived when allowing for partial abstention as
  for the restrictive case used in the main text.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: details
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -13990,7 +14506,7 @@ literal "false"
  That being said, it is not clear if this theoretical nuance would have
  any behavioral implication in practice, as the different voting systems
  differ only by their tie-breaking rules, and elect the same choice in most
- of cases (see section 
+ of cases (see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:The-different-rules"
