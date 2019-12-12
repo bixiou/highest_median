@@ -19,21 +19,43 @@ barres(file="new_tie_breaking_RdYlGn", color = color(7, theme='RdYlGn', rev_colo
 
 ##### 5.2 Sensitivity to small fluctuations #####
 # Figure 3: score of each rule
-max_p <- 0.7
-ps <- seq(0, max_p, 0.01)
-qs <- rep(0.1, max_p*100+1)
+share_1 <- .2
+share2 <- .1
+max_p <- 1-share_1-share2
+steps <- 1000
+xs <- seq(1/steps, max_p, 1/steps)
 old_mar <- par()$mar
 par(mar=c(3.1, 3.1, 0.1, 0.1))
-plot(ps[1:51], aggregate_scores('d', cbind(qs, 1-ps-qs, ps-0.1, 0.1)[1:51,]), type='l', col='red', lwd=2, lty=2, xlim=c(0,max_p), ylim=c(-0.5,0.8), ylab='', xlab='') + grid() # , xlab=expression(italic(p)), ylab='Score', 
-lines(ps[1:51], aggregate_scores('s', cbind(qs, 1-ps-qs, ps-0.1, 0.1)[1:51,]), type='l', col='blue', lwd=2, lty=3)
-lines(ps, aggregate_scores('n', cbind(qs, 1-ps-qs, ps-0.1, 0.1)), type='l', col='green', lwd=2, lty=1)
-lines(c(0.101, ps[12:(max_p*100+1)]), aggregate_scores('mj', rbind(c(0.1, 0.799, 0.001, 0.1), cbind(qs, 1-ps-qs, ps-0.1, 0.1)[12:(max_p*100+1),])), type='l', col='black', lwd=2, lty=1)
-lines(ps[1:11], aggregate_scores('mj', cbind(qs, 1-ps-qs, ps-0.1, 0.1)[1:11,]), type='l', col='black', lwd=2, lty=1)
-lines(ps[51:(max_p*100+1)]+0.001, aggregate_scores('d', cbind(qs, 1-ps-0.001-qs, ps+0.001-0.1, 0.1)[51:(max_p*100+1),]), type='l', col='red', lwd=2, lty=2, ylim=c(-0.5,max_p), ylab='', xlab='') + grid() # , xlab=expression(italic(p)), ylab='Score', 
-lines(c(0.501, ps[52:(max_p*100+1)]), aggregate_scores('s', rbind(c(0.1, 0.399, 0.401, 0.1), cbind(qs, 1-ps-qs, ps-0.1, 0.1)[52:(max_p*100+1),])), type='l', col='blue', lwd=2, lty=3)
+example_grades <- cbind(share_1, max_p-xs, xs, share2) 
+plot(xs, aggregate_scores('n', example_grades), type='l', col='green', lwd=2, lty=1, xlim=c(0,max_p), ylim=c(-0.3,1), ylab='', xlab='') + grid() # , xlab=expression(italic(p)), ylab='Score', 
+lines(xs[1:steps*(.5-share2)], aggregate_scores('s', example_grades[1:steps*(.5-share2),]), type='l', col='blue', lwd=2, lty=3)
+lines(xs[1:steps*(.5-share2)], aggregate_scores('d', example_grades[1:steps*(.5-share2),]), type='l', col='red', lwd=2, lty=2)
+lines(xs[(steps*(share_1-share2)+1):(steps*max_p)], aggregate_scores('mj', example_grades[(steps*(share_1-share2)+1):(steps*max_p),]), type='l', col='black', lwd=2, lty=1)
+lines(xs[1:(steps*(share_1-share2))], aggregate_scores('mj', example_grades[1:(steps*(share_1-share2)),]), type='l', col='black', lwd=2, lty=1)
+lines(xs[(steps*(.5-share2)+1):(steps*max_p)], aggregate_scores('d', example_grades[(steps*(.5-share2)+1):(steps*max_p),]), type='l', col='red', lwd=2, lty=2, ylim=c(-0.5,max_p), ylab='', xlab='') + grid() # , xlab=expression(italic(p)), ylab='Score', 
+lines(xs[(steps*(.5-share2)+1):(steps*max_p)], aggregate_scores('s', example_grades[(steps*(.5-share2)+1):(steps*max_p),]), type='l', col='blue', lwd=2, lty=3)
 legend('bottomright', col=c('red', 'blue', 'green', 'black'), lwd=2, lty=c(2,3,1,1), legend=c(expression(italic(d)), expression(italic(s)), expression(italic(n)), expression(italic(mj))), title='Score')
 mtext(text = expression(paste(italic(x),  ': share of grades +1')), side = 1, line = 2.2) + mtext(text = 'Score', side = 2, line = 2.2)
-par(mar=old_mar) #  (given 10% of -1, 10% of +2 and the rest of 0)
+par(mar=old_mar) #  (given 10% of -1, 10% of +2, x of +1 and the rest of 0)
+
+# # old figure: more readable but less easy to explain
+# max_p <- 0.7
+# ps <- seq(0, max_p, 0.01)
+# # qs <- rep(0.1, max_p*100+1)
+# old_mar <- par()$mar
+# par(mar=c(3.1, 3.1, 0.1, 0.1))
+# example_grades <- cbind(0.1, 1-ps-0.1, pmax(ps-0.1, 0), pmin(0.1, ps)) # all equivalent: cbind(qs, 1-ps-qs, ps - 0.1*(ps>=0.1), 0.1*(ps>=0.1)) old: cbind(qs, 1-ps-qs, ps-0.1, 0.1) # /!\ check also avant-dernière line before legend
+# plot(ps[1:51], aggregate_scores('d', example_grades[1:51,]), type='l', col='red', lwd=2, lty=2, xlim=c(0,max_p), ylim=c(-0.5,0.8), ylab='', xlab='') + grid() # , xlab=expression(italic(p)), ylab='Score', 
+# lines(ps[1:51], aggregate_scores('s', example_grades[1:51,]), type='l', col='blue', lwd=2, lty=3)
+# lines(ps, aggregate_scores('n', example_grades), type='l', col='green', lwd=2, lty=1)
+# lines(c(0.101, ps[12:(max_p*100+1)]), aggregate_scores('mj', rbind(c(0.1, 0.799, 0.001, 0.1), example_grades[12:(max_p*100+1),])), type='l', col='black', lwd=2, lty=1)
+# lines(ps[1:11], aggregate_scores('mj', example_grades[1:11,]), type='l', col='black', lwd=2, lty=1)
+# lines(ps[51:(max_p*100+1)]+0.001, aggregate_scores('d', cbind(.1, 1-ps-0.001-.1, pmax(ps+0.001-0.1, 0), pmin(0.1, ps))[51:(max_p*100+1),]), type='l', col='red', lwd=2, lty=2, ylim=c(-0.5,max_p), ylab='', xlab='') + grid() # , xlab=expression(italic(p)), ylab='Score', 
+# lines(c(0.501, ps[52:(max_p*100+1)]), aggregate_scores('s', rbind(c(0.1, 0.399, 0.401, 0.1), example_grades[52:(max_p*100+1),])), type='l', col='blue', lwd=2, lty=3)
+# legend('bottomright', col=c('red', 'blue', 'green', 'black'), lwd=2, lty=c(2,3,1,1), legend=c(expression(italic(d)), expression(italic(s)), expression(italic(n)), expression(italic(mj))), title='Score')
+# mtext(text = expression(paste(italic(x),  ': share of grades > 0')), side = 1, line = 2.2) + mtext(text = 'Score', side = 2, line = 2.2)
+# par(mar=old_mar) # 
+
 
 # Quantile shifts
 start <- Sys.time() # 2h

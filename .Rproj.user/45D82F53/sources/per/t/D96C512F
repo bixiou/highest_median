@@ -1,19 +1,19 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1570828122255.000,
-    "dirty" : true,
+    "created" : 1576110437390.000,
+    "dirty" : false,
     "encoding" : "UTF-8",
-    "folds" : "38|87|65|0|\n",
-    "hash" : "1132462400",
-    "id" : "415D3D36",
-    "lastKnownWriteTime" : 1570845990,
-    "last_content_update" : 1570846019013,
+    "folds" : "",
+    "hash" : "1374432877",
+    "id" : "D96C512F",
+    "lastKnownWriteTime" : 1576110412,
+    "last_content_update" : 1576110412,
     "path" : "~/www/highest_median/packages_functions_data.R",
     "project_path" : "packages_functions_data.R",
     "properties" : {
-        "cursorPosition" : "415,227",
-        "scrollLine" : "398"
+        "cursorPosition" : "110,0",
+        "scrollLine" : "83"
     },
     "read_only" : false,
     "read_only_alternatives" : [

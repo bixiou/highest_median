@@ -1,19 +1,19 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1570828124290.000,
+    "created" : 1576110432391.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3629239235",
-    "id" : "738424DE",
-    "lastKnownWriteTime" : 1571000663,
-    "last_content_update" : 1571000663248,
+    "hash" : "665492240",
+    "id" : "B9D56A65",
+    "lastKnownWriteTime" : 1576110412,
+    "last_content_update" : 1576110412,
     "path" : "~/www/highest_median/Tie-breaking the Highest Median.R",
     "project_path" : "Tie-breaking the Highest Median.R",
     "properties" : {
-        "cursorPosition" : "83,16",
-        "scrollLine" : "72"
+        "cursorPosition" : "30,38",
+        "scrollLine" : "20"
     },
     "read_only" : false,
     "read_only_alternatives" : [

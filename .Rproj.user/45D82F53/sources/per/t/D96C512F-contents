@@ -91,6 +91,8 @@ score <- function(rule="mj", grades=elec2012['Hollande',], k = 0.5, name="", pri
 } # mj, s, d or mean
 aggregate_scores <- function(rule='mj', grades = elec2012, k = 0.5, names = candidats_2012, print = FALSE, return_text = FALSE, scale=-2:4, rounds=3) {
   # res <- matrix(ncol = length(names), nrow = 4)
+  if (!is.matrix(grades)) grades <- matrix(grades, nrow = 1)
+  if (any(grades < 0)) print('WARNING: some shares of grades are negative!')
   if (nrow(grades)!=length(names)) names <- c(1:length(nrow(grades)))
   if (ncol(grades)!=length(scale)) scale <- c((floor(-ncol(grades)/2)+1):(ncol(grades)+floor(-ncol(grades)/2)))
   res <- c()
