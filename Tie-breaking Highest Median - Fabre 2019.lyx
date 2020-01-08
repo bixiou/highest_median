@@ -462,8 +462,8 @@ literal "false"
 
  aims to characterize the majority judgment and states that only a certain
  class of functions share some valuable characteristics, like monotonicity.
- We relativize this result, by emphasizing that it only holds true for continuou
-s scales of grades.
+ We relativize this result, by emphasizing that it only holds true for infinite
+ scales of grades.
  Properties remaining specific to the majority judgment in the discrete
  case are idiosyncratic features rather than universally sought criteria,
  and other median-based rules exist that are both monotonic and continuous.
@@ -539,6 +539,35 @@ literal "false"
 \end_inset
 
 .
+ The R package 
+\emph on
+
+\begin_inset CommandInset href
+LatexCommand href
+name "HighestMedianRules"
+target "https://cran.r-project.org/web/packages/HighestMedianRules/index.html"
+literal "false"
+
+\end_inset
+
+ 
+\emph default
+was created to easily compute the scores and rank candidates according to
+ the voting rules studied in the present paper.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO!: library in R.
+\end_layout
+
+\begin_layout Plain Layout
+TODO: continuous scale or infinite?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -918,8 +947,8 @@ the result needed to prove
 
 \end_inset
 
-their theorem only applies to a continuous set of grades, whereas in all
- practical application, the set of grades is finite.
+their theorem only applies to an infinite set of grades, whereas in all
+ practical applications, the set of grades is finite.
  As a consequence, other voting systems electing the highest median are
  as credible as the majority judgment.
  Rather than discrediting the 
@@ -1061,6 +1090,72 @@ centering
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+NOTE: The normalized difference 
+\emph on
+n
+\emph default
+ is increasing in 
+\begin_inset Formula $d/b$
+\end_inset
+
+ where 
+\emph on
+d
+\emph default
+ (resp.
+ 
+\emph on
+b
+\emph default
+) is 
+\begin_inset Formula $\frac{1}{2}-q$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $\frac{1}{2}-p$
+\end_inset
+
+) (thus it would make more sense todo call it 
+\emph on
+central judgment
+\emph default
+ and switch with 
+\emph on
+usual judgment
+\emph default
+); while the relative share is increasing in 
+\begin_inset Formula $p/q$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $2n=\frac{p-q}{d+b}=\frac{d-b}{d+b}$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{2n+1}{2}=\frac{d}{d+b}=\frac{1}{1+b/d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1113,13 +1208,9 @@ normalized difference
 majority judgment
 \emph default
  (
-\emph on
-
 \begin_inset Formula $mj$
 \end_inset
 
-
-\emph default
 ).
 \begin_inset CommandInset label
 LatexCommand label
@@ -1452,7 +1543,7 @@ B
 
 \series bold
 \color blue
-\begin_inset Formula $\mathbf{\frac{10}{24}}$
+\begin_inset Formula $\mathbf{\frac{10}{44}}$
 \end_inset
 
 
@@ -3524,7 +3615,7 @@ c
 
 
 \emph default
- are ordered lexicographically starting a 
+ are ordered lexicographically starting with a 
 \emph on
 primary score
 \emph default
@@ -4078,7 +4169,7 @@ even though their tuples
 \end_inset
 
  are distinct.
- This is so when tied tuples
+ This is so when some tied tuples
 \begin_inset Foot
 status open
 
@@ -4086,14 +4177,22 @@ status open
 We define tied tuples 
 \size normal
 \emph on
-T
+
+\begin_inset Formula $T_{\mu}$
+\end_inset
+
+
 \emph default
- as tuples of choices sharing the highest 
+ as tuples of choices sharing the 
 \begin_inset Formula $mj$
 \end_inset
 
- score: 
-\begin_inset Formula $T:=\left\{ \left(\alpha_{c},p_{c},q_{c}\right)\,|\,c\in{\cal C}\text{ and }mj_{c}=\underset{k}{\max}\left\{ mj_{k}\right\} \right\} $
+ score 
+\begin_inset Formula $\mu$
+\end_inset
+
+: 
+\begin_inset Formula $T_{\mu}:=\left\{ \left(\alpha_{c},p_{c},q_{c}\right)\,|\,c\in{\cal C}\text{ and }mj_{c}=\mu\right\} $
 \end_inset
 
 .
@@ -6566,7 +6665,7 @@ improperly
 
 \end_inset
 
-apply a result from social choice theory that is only valid for a continuous
+apply a result from social choice theory that is only valid for an infinite
  set of grades.
  Yet in our setting
 \begin_inset Note Note
@@ -6581,6 +6680,18 @@ status open
 , the set of grades is finite.
  In any case, it could not be otherwise, as the definitions of the alternative
  tie-breaking rules require a finite set of grades.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: remove last sentence? It's not really true, we could extend their
+ definition to continuous set of grades, even if it wouldn't be natural.
+ Also, the sentence is weird.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -8747,7 +8858,7 @@ literal "false"
 
 \end_inset
 
- when the set of grades is continuous, an assumption which is made in 
+ when the set of grades is infinite, an assumption which is made in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "balinski_majority_2011"
@@ -8846,6 +8957,17 @@ s case*
  So, the main contribution of this paper (the example disclaiming Theorem
  11 in B-L (2014)) is known, as well as how to fix it.
  
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+NOTE: when properly defined on a continuous set of grades, the alternative
+ tie-breaking rules are not order consistent.
 \end_layout
 
 \end_inset
@@ -9800,8 +9922,38 @@ centering
 
 
 \begin_inset Graphics
+	filename images/rules_by_x.tiff
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename images/rules_by_p2.png
 	width 100col%
+
+\end_inset
+
+to do: share of grades 
+\begin_inset Formula $\geq+1$
+\end_inset
+
+ in legend.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: change Figure (do it on laptop to increase width)
+\end_layout
 
 \end_inset
 
@@ -9809,7 +9961,120 @@ centering
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Score of each rule given the following distribution of grades: 10% of 
+Score of each rule given the following distribution of grades: 20% of 
+\begin_inset Formula $-1$
+\end_inset
+
+, 10% of 
+\begin_inset Formula $+2$
+\end_inset
+
+, the abscissa 
+\emph on
+x 
+\emph default
+of grades 
+\begin_inset Formula $+1$
+\end_inset
+
+, and the remaining of 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+old corrected: 10% of 
+\begin_inset Formula $-1$
+\end_inset
+
+; the abscissa 
+\emph on
+x 
+\emph default
+of grades 
+\begin_inset Formula $>0$
+\end_inset
+
+ (broken down into 10% of 
+\begin_inset Formula $+2$
+\end_inset
+
+ when 
+\begin_inset Formula $x\geq0.1$
+\end_inset
+
+, and the rest of 
+\begin_inset Formula $+1$
+\end_inset
+
+); and the remaining 
+\begin_inset Formula $0.9-x$
+\end_inset
+
+ of 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+old corrected: 10% of 
+\begin_inset Formula $-1$
+\end_inset
+
+; the abscissa 
+\emph on
+x 
+\emph default
+of grades 
+\begin_inset Formula $>0$
+\end_inset
+
+, including 
+\begin_inset Formula $\max\left\{ x-0.1;0\right\} $
+\end_inset
+
+ of 
+\begin_inset Formula $+1$
+\end_inset
+
+ and 
+\begin_inset Formula $\min\left\{ x;0.1\right\} $
+\end_inset
+
+ of 
+\begin_inset Formula $+2$
+\end_inset
+
+; and the remaining 
+\begin_inset Formula $0.9-x$
+\end_inset
+
+ of 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+OLD: 10% of 
 \begin_inset Formula $-1$
 \end_inset
 
@@ -9830,6 +10095,41 @@ of
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+10% of 
+\begin_inset Formula $-1$
+\end_inset
+
+, 10% of 
+\begin_inset Formula $+2$
+\end_inset
+
+, the abscissa 
+\emph on
+x 
+\emph default
+of 
+\begin_inset Formula $+1$
+\end_inset
+
+, and the remaining of 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Note Note
 status collapsed
 
@@ -9852,6 +10152,16 @@ For
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Score-of-each"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DONE
+\end_layout
 
 \end_inset
 
@@ -9948,7 +10258,7 @@ of grades
 \begin_inset Formula $+2$
 \end_inset
 
- constant at 0.1.
+ constant at .2 and .1, respectively.
  One can notice that a discontinuity occurs for the majority judgment where
  
 \begin_inset Formula $p=q$
@@ -9960,7 +10270,22 @@ of grades
  grade changes (i.e.
  when 
 \emph on
-x
+p
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\emph on
+\begin_inset Formula $x+.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \emph default
  go beyond 
 \begin_inset Formula $\frac{1}{2}$
@@ -10012,7 +10337,19 @@ S
 ).
  Indeed, when 
 \emph on
-x 
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\emph on
+x
+\end_layout
+
+\end_inset
+
+p 
 \emph default
 exceeds 
 \begin_inset Formula $\frac{1}{2}$
@@ -10394,7 +10731,7 @@ Overall, the normalized difference
 
 \begin_layout Standard
 \begin_inset Float table
-placement b
+placement t
 wide false
 sideways false
 status open
@@ -10936,7 +11273,17 @@ name "subsec:Properties-specific-to-1"
 
 \begin_layout Standard
 Since the alternative tie-breaking scores appear to take better account
- of all non-median groups than 
+ of all
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: both?
+\end_layout
+
+\end_inset
+
+ non-median groups than 
 \emph on
 mj
 \emph default
@@ -12387,7 +12734,7 @@ changed the order between Hollande and Bayrou
  with respect to the other rules, because they rely on both the proponents
  and the opponents, and not only on the largest between the two.
  In a way, they use more information than the majority judgment, and this
- helps them be more robust to an fluctuations in the results.
+ helps them be more robust to fluctuations in the results.
 \begin_inset Note Note
 status open
 
@@ -12593,8 +12940,8 @@ eject
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
-bibfiles "C:/Users/Adrien/Google Drive/Economie/Articles/Social_choice"
-options "C:/Users/Adrien/Google Drive/Economie/Articles/plainnat_no_url_no_note"
+bibfiles "../../Articles/Social_choice"
+options "../../Articles/plainnat_no_url_no_note"
 
 \end_inset
 
