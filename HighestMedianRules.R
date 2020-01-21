@@ -40,6 +40,11 @@ gauge <- function(grades, k = 0.5, scale = c(), return = 'qp') {
 #' Gauges
 #'
 #' Aggregator of 'gauge': returns the gauge of each row (i.e. candidate) from a matrix (i.e. the voting profile). See function 'gauge'.
+#' @param grades A numeric vector containing the shares of each grades of a candidate, from the lowest grade to the highest.
+#' @param k The quantile used to compute the gauge. Default to 0.5 (the median). For more details, see paragraph Extensions in 3.2.1 of "Tie-Breaking the Highest Median", Fabre, Social Choice & Welfare (forthcoming).
+#' @param scale A numeric vector containing the values of the scale of grades. Default to c((floor(-length(grades)/2)+1):(length(grades)+floor(-length(grades)/2))).
+#' @param return A string containing the information to return. Default to 'qp' (shares of opponents and proponents). Possible values: 'g', 'p', 'q', 'pq', 'qp', 'qpg', 'pqg', 'gpq', 'gqp', 'text' (i.e. the gauge), 'all'. If the string does not match one of the above, 'all' is returned.
+#' @export
 #' @examples gauges(grades = elec2012, return = 'gqp')
 gauges <- function(grades, k = 0.5, scale = c(), return = 'qp') return(apply(grades, 1, function(x) return(gauge(x, k, scale, return))))
 
@@ -137,7 +142,7 @@ ranking <- function(grades, rule='mj', k = 0.5, scale=c(), names = c(), print = 
 #' @param grades A voting profile, i.e. a matrix with the shares of grades of each candidate on each row, from the lowest grade to the highest.
 #' @param scale A numeric vector containing the values of the scale of grades. Default to c((floor(-length(grades)/2)+1):(length(grades)+floor(-length(grades)/2))).
 #' @param names String vector, each string to be printed in case print = TRUE. Defaults to c().
-#' @param return_distances If TRUE, returns the Kendall distance between the rules (using AllKendall) instead of the matrix of scores. Default to FALSE.
+#' @param return_distance If TRUE, returns the Kendall distance between the rules (using AllKendall) instead of the matrix of scores. Default to FALSE.
 #' @param rounds If TRUE, rounds the scores (to 3 digits for highest median rules and 2 digits for range voting). Default to TRUE.
 #' @importFrom RMallow AllKendall
 #' @export
@@ -158,7 +163,7 @@ rankings <- function(grades, scale=c(), names = c(), return_distance=FALSE, roun
   all_orders <- do.call("rbind", lapply(list(aggregate_scores(rule='mean', grades=grades, names=names, scale=scale, rounds=F), aggregate_scores(grades=grades, names=names, scale=scale, rounds=F),
           aggregate_scores(rule='d', grades=grades, names=names, scale=scale, rounds=F), aggregate_scores(rule='s', grades=grades, names=names, scale=scale, rounds=F),
           aggregate_scores(rule='n', grades=grades, names=names, scale=scale, rounds=F)), rank))
-  distances <- AllKendall(all_orders, all_orders)
+  distances <- RMallow::AllKendall(all_orders, all_orders)
   colnames(distances) <- rownames(distances) <- c('mean', '$mj$', '$d$', '$s$', '$n$') # c('mean', '$mj$', '$\\Delta$', '$\\sigma$', '$\\nu$') c('mj', 's', 'd', 'mean', 'n')
   if (return_distance) return(distances)
   else return(res)
@@ -169,7 +174,8 @@ rankings <- function(grades, scale=c(), names = c(), return_distance=FALSE, roun
 #' Example voting profile: matrix containing the shares of grades (in -2:4) of candidates on each row.
 elec2012 <- matrix(0,nrow=10, ncol=7) # Balinski & Laraki (2016) p. 14, 737 voters
 #' Names of candidates of the example voting profile 'elec2012'
-row.names(elec2012) <- candidats_2012 <- c("Hollande", "Bayrou", "Sarkozy", "Melenchon", "Dupont-Aignan", "Joly", "Poutou", "Le Pen", "Arthaud", "Cheminade")
+candidats_2012 <- c("Hollande", "Bayrou", "Sarkozy", "Melenchon", "Dupont-Aignan", "Joly", "Poutou", "Le Pen", "Arthaud", "Cheminade")
+row.names(elec2012) <- candidats_2012
 colnames(elec2012) <- c("To reject", "Poor", "Fair", "Good", "Very Good", "Excellent", "Outstanding")
 elec2012['Hollande',] <- c(0.1424, 0.1425, 0.1479, 0.1167, 0.1642, 0.1615, 0.1248)
 elec2012['Bayrou',] <- c(0.0869, 0.1194, 0.2008, 0.2524, 0.2171, 0.0977, 0.0258)
